@@ -4,6 +4,8 @@
 
 The Hexgon generator is a tool to create the html and css needed to display a responsive grid of hexagons.
 
+Tool can be found here: https://willemverbuyst.github.io/hexagon-generator/
+
 !['screenshot of the hexagon genrator'](./img/hexagon_generator.png)
 
 ## Why use this?
