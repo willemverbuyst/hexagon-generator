@@ -1,0 +1,155 @@
+:root {
+  --color-bg: #ddd;
+  --color-inner-hexagon: rgb(226, 150, 9);
+  --color-text: DarkSlateGrey;
+  /* Use clip-path to create the shape */
+  --hexagon-clip-path: polygon(
+    0 25%,
+    50% 0,
+    100% 25%,
+    100% 75%,
+    50% 100%,
+    0 75%
+  );
+
+  --width-hexagon-outer: 4vw;
+  --amount-of-hexagons: 5;
+  --width-hexagon-container: calc(
+    var(--width-hexagon-outer) * var(--amount-of-hexagons)
+  );
+  --height-hexagon-outer: calc(1.154665 * var(--width-hexagon-outer));
+  --margin-left: calc(0.5 * (var(--width-hexagon-outer)));
+  /* the margin at the top for all but the first row is a fourth of the container's height */
+  --margin-top: calc(-1 * var(--height-hexagon-outer) / 4);
+  /* the gap between the hexagons is created by an inner hexagon*/
+  --size-hexagon-inner: 86%;
+  --skew-X: 12deg;
+  --skew-Y: 4deg;
+  --hover-rotation: 6deg;
+  --hover-scale: 1.6;
+  --hover-transition: 0.7s;
+}
+
+@font-face {
+  font-family: system;
+  font-style: normal;
+  font-weight: 300;
+  src: local('.SFNSText-Light'), local('.HelveticaNeueDeskInterface-Light'),
+    local('.LucidaGrandeUI'), local('Ubuntu Light'), local('Segoe UI Light'),
+    local('Roboto-Light'), local('DroidSans'), local('Tahoma');
+}
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+}
+
+body {
+  font-family: 'system';
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: #fff;
+}
+
+input {
+  text-align: right;
+  width: 11.2rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: 23vw 1fr 29vw;
+  grid-template-rows: 50vh 50vh;
+  grid-template-areas:
+    'input hexagons html'
+    'input hexagons css';
+}
+
+.input-field {
+  grid-area: input;
+}
+
+.input-item {
+  padding: 2px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-field__2 {
+  grid-area: custom;
+}
+
+/* HEXAGON SECTION */
+.hexagon-wrapper {
+  grid-area: hexagons;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 6.4rem;
+}
+
+.hexagon-wrapper__hexagon-container {
+  width: var(--width-hexagon-container);
+  display: flex;
+  flex-wrap: wrap;
+  transform: skew(var(--skew-X), var(--skew-Y));
+}
+
+/* top row does not need to go up, all other row got up with a quarter their size */
+.hexagon__outer {
+  -webkit-clip-path: var(--hexagon-clip-path);
+  clip-path: var(--hexagon-clip-path);
+  width: var(--width-hexagon-outer);
+  height: var(--height-hexagon-outer);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--margin-top);
+  transition: all var(--hover-transition);
+}
+
+.hexagon__outer:hover {
+  transform: scale(var(--hover-scale)) rotate(var(--hover-rotation));
+}
+
+.first-row_margin-top {
+  margin-top: 0;
+}
+
+.even-rows__margin-left {
+  margin-left: var(--margin-left);
+}
+
+.hexagon__inner {
+  background-color: var(--color-inner-hexagon);
+  -webkit-clip-path: var(--hexagon-clip-path);
+  clip-path: var(--hexagon-clip-path);
+  width: var(--size-hexagon-inner);
+  height: var(--size-hexagon-inner);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text);
+  font-size: 1.28rem;
+}
+
+.wrapper__box {
+  background-color: rgba(0, 0, 0, 0.5);
+
+  overflow: scroll;
+  font-size: 1.28rem;
+  padding: 1.6rem;
+}
+
+.html-code {
+  grid-area: html;
+  border-bottom: 3px solid var(--color-bg);
+}
+
+.css-code {
+  grid-area: css;
+}

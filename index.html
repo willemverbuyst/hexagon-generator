@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hexagon Generator</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="grid-wrapper">
+      <div class="wrapper__box input-field">
+        <h2>Customize values</h2>
+        <div class="input-item">
+          <label>Background Color</label>
+          <input id="bg-color" type="text" value="#ddd" />
+        </div>
+        <div class="input-item">
+          <label>Hexor</label>
+          <input id="hexagon-color" type="text" value="rgb(226, 150, 9)" />
+        </div>
+        <div class="input-item">
+          <label>Text Color</label>
+          <input id="text-color" type="text" value="DarkSlateGrey" />
+        </div>
+        <div class="input-item">
+          <label>Amount of First Row</label>
+          <input id="hexagon-first-row" type="number" value="5" />
+        </div>
+        <div class="input-item">
+          <label>Size of Hexagon</label>
+          <input id="hexagon-size" type="number" value="4" />
+        </div>
+        <div class="input-item">
+          <label>Amount of Hexagons</label>
+          <input id="hexagon-amount" type="number" value="32" />
+        </div>
+        <div class="input-item">
+          <label>Size of Gap</label>
+          <input id="hexagon-gap" type="number" value="14" />
+        </div>
+        <div class="input-item">
+          <label>Skew X</label>
+          <input id="container-skew-X" type="number" value="12" />
+        </div>
+        <div class="input-item">
+          <label>Skew Y</label>
+          <input id="container-skew-Y" type="number" value="4" />
+        </div>
+        <div class="input-item">
+          <label>Rotate on hover</label>
+          <input id="hexagon-rotation" type="number" value="6" />
+        </div>
+        <div class="input-item">
+          <label>Scale on hover</label>
+          <input id="hexagon-scale" type="number" step="0.1" value="1.6" />
+        </div>
+        <div class="input-item">
+          <label>Transition</label>
+          <input id="hexagon-transition" type="number" step="0.1" value="0.7" />
+        </div>
+
+        <h2>Media queries</h2>
+        <div class="input-item">
+          <label>#1 max-width</label>
+          <input id="media-query--1" type="number" value="900" />
+        </div>
+        <div class="input-item">
+          <label>#2 max-width</label>
+          <input id="media-query--2" type="number" value="700" />
+        </div>
+        <div class="input-item">
+          <label>#3 max-width</label>
+          <input id="media-query--3" type="number" value="500" />
+        </div>
+      </div>
+
+      <div class="hexagon-wrapper">
+        <div
+          class="hexagon-wrapper__hexagon-container"
+          id="hexagon__container"
+        ></div>
+      </div>
+
+      <div class="wrapper__box html-code" id="html"></div>
+      <div class="wrapper__box css-code" id="css"></div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
