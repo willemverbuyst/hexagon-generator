@@ -90,7 +90,6 @@ input:focus {
   justify-content: center;
   align-items: flex-start;
   margin-top: 6.4rem;
-  z-index: -10;
 }
 
 .hexagon-wrapper__hexagon-container {
@@ -140,10 +139,10 @@ input:focus {
 
 .wrapper__box {
   background-color: rgba(0, 0, 0, 0.5);
-
   overflow: scroll;
   font-size: 1.28rem;
   padding: 1.6rem;
+  z-index: 10;
 }
 
 .html-code {
